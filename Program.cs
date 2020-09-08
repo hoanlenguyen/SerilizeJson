@@ -59,7 +59,7 @@ namespace SerializeJsonDemo
 
             var url2 = $"{_host}/v1/order/estimated_fee";
             var url3 = $"{_host}/v1/order/create";
-
+            var url4 = $"{_host}/v1/order/list";
             ICollection<KeyValuePair<string, string>> content = new Dictionary<string, string>();
             content.Add(new KeyValuePair<string, string>("token", token));
             content.Add(new KeyValuePair<string, string>("order_time", orderRequest.OrderTime.ToString()));
@@ -67,24 +67,43 @@ namespace SerializeJsonDemo
             content.Add(new KeyValuePair<string, string>("service_id", orderRequest.ServiceId));
             content.Add(new KeyValuePair<string, string>("requests", JsonConvert.SerializeObject(orderRequest.Requests)));
 
-            var request2 = new HttpRequestMessage(HttpMethod.Post, url3) { Content = new FormUrlEncodedContent(content) };
-            var response2 = await client.SendAsync(request2);
-            var json2 = await response2.Content.ReadAsStringAsync();
-            Console.WriteLine(json2);
-            //var order = JsonConvert.DeserializeObject<Order>(json2);
-            var orderResponse = JsonConvert.DeserializeObject<OrderResponse>(json2);
-            foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(orderResponse))
-            {
-                string name = descriptor.Name;
-                object value = descriptor.GetValue(orderResponse);
-                Console.WriteLine("{0}:{1}", name, value);
-            }
+            //var request2 = new HttpRequestMessage(HttpMethod.Post, url3) { Content = new FormUrlEncodedContent(content) };
+            //var response2 = await client.SendAsync(request2);
+            //var json2 = await response2.Content.ReadAsStringAsync();
+            //Console.WriteLine(json2);
+            ////var order = JsonConvert.DeserializeObject<Order>(json2);
+            //var orderResponse = JsonConvert.DeserializeObject<OrderResponse>(json2);
+            //foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(orderResponse))
+            //{
+            //    string name = descriptor.Name;
+            //    object value = descriptor.GetValue(orderResponse);
+            //    Console.WriteLine("{0}:{1}", name, value);
+            //}
 
-            foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(orderResponse.Order))
+            //foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(orderResponse.Order))
+            //{
+            //    string name = descriptor.Name;
+            //    object value = descriptor.GetValue(orderResponse.Order);
+            //    Console.WriteLine("{0}:{1}", name, value);
+            //}
+
+            ICollection<KeyValuePair<string, string>> content4 = new Dictionary<string, string>();
+            content4.Add(new KeyValuePair<string, string>("token", token));
+            var request4 = new HttpRequestMessage(HttpMethod.Post, url4) { Content = new FormUrlEncodedContent(content4) };
+            var response4 = await client.SendAsync(request4);
+            var json4 = await response4.Content.ReadAsStringAsync();
+            //Console.WriteLine(json4);
+            var orderList = JsonConvert.DeserializeObject<List<Order>>(json4);
+            Console.WriteLine("Count:"+ orderList.Count);
+            foreach (var order in orderList)
             {
-                string name = descriptor.Name;
-                object value = descriptor.GetValue(orderResponse.Order);
-                Console.WriteLine("{0}:{1}", name, value);
+                foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(order))
+                {
+                    string name = descriptor.Name;
+                    object value = descriptor.GetValue(order);
+                    Console.WriteLine("{0}:{1}", name, value);
+                }
+                Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             }
         }
     }
