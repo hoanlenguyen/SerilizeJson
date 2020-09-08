@@ -1,0 +1,65 @@
+﻿{
+  "_id": "209H2G05",
+  "currency": "VND",
+  "user_main_account": 0,
+  "user_bonus_account": 0,
+  "total_pay": 33000,
+  "distance": 5.83,
+  "duration": 1594,
+  "distance_fee": 33000,
+  "request_fee": 0,
+  "stop_fee": 0,
+  "vat_fee": 0,
+  "discount": 0,
+  "path": [
+    {
+      "lat": 10.7692105,
+      "lng": 106.6637935,
+      "address": "725 Hẻm số 7 Thành Thái, Phường 14, Quận 10, Hồ Chí Minh, Việt Nam",
+      "short_address": "Quận 10",
+      "name": "nmbmb",
+      "remarks": "call me"
+    },
+    {
+      "lat": 10.7828887,
+      "lng": 106.704898,
+      "address": "Miss Ao Dai Building, 21 Nguyễn Trung Ngạn, Bến Nghé, Quận 1, Hồ Chí Minh, Vietnam",
+      "name": "Bao"
+    }
+  ],
+  "from_location": {
+    "type": "Point",
+    "coordinates": [
+      106.6637935,
+      10.7692105
+    ]
+  },
+  "requests": [],
+  "items": [],
+  "total_fee": 33000,
+  "app": "AhaMove",
+  "service_id": "SGN-BIKE",
+  "city_id": "SGN",
+  "user_id": "84908842280",
+  "user_name": "Drinkies Test Account",
+  "user_imei": null,
+  "create_time": 1598603178.4966698,
+  "order_time": 1598603178.4966698,
+  "delay_until": 1598603178.4966698,
+  "index": 4465,
+  "status": "ASSIGNING",
+  "partner": "gannha",
+  "polylines": "sjv`A{w_jSo@y@bEwAy@wB^y@{AqE`HqBuA}CZgBp@cb@j@iAYo@`Lui@r@OHs@qB}@cNgVy@qDTaAsJaJfDoCkAsCfAk@q]_k@on@qk@eBnBgC{B",
+  "online_pay": 0,
+  "notify_package_return": true,
+  "uniform_user_feedback": 2,
+  "pending_period": 100,
+  "timeout": 1200,
+  "stoppoint_price": 0,
+  "special_request_price": 0,
+  "vat": 0,
+  "distance_price": 33000,
+  "voucher_discount": 0,
+  "subtotal_price": 33000,
+  "total_price": 33000
+}
