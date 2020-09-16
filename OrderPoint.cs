@@ -29,7 +29,7 @@ namespace SerializeJsonDemo
         ///     Number	COD amount (Cash on delivery), for multiple delivery points.
         /// </summary>
         [JsonProperty("cod")]
-        public int Cod { get; set; }
+        public double Cod { get; set; }
 
         [JsonProperty("remarks")]
         public string Remarks { get; set; }

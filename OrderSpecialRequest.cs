@@ -17,7 +17,7 @@ namespace SerializeJsonDemo
         ///     Request fee
         /// </summary>
         [JsonProperty("price")]
-        public double Price { get; set; }
+        public int Price { get; set; }
 
         [JsonProperty("value")]
         public double Value { get; set; }
