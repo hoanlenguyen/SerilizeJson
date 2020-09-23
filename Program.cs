@@ -36,6 +36,9 @@ namespace SerializeJsonDemo
                 Longitude = 106.807654,
                 ShortAddress = "Thủ Đức",
                 Name = "Test Shopper",
+                //Cod = 5100000,
+                TrackingNumber="101244234"
+
             });
             points.Add(new OrderPoint
             {
@@ -46,16 +49,16 @@ namespace SerializeJsonDemo
                 Mobile = "0987 344 234",
                 Name = "Bao",
                 Remarks = "call me",
-                Cod = 510000
+                //Cod = 5100000
+                TrackingNumber = "101244234"
             });
             var request = new List<object>();
             request.Add(
                 new 
                 {
                     _id= "SGN-TMDT-TRANSFER-COD",
-                    price = 510000
-                }
-                );
+                    price = 0
+                });
             
             string token = null;
             var url = $"{_host}/v1/partner/register_account?api_key={_key}&mobile={_mobile}";
@@ -89,6 +92,7 @@ namespace SerializeJsonDemo
             var json2 = await response2.Content.ReadAsStringAsync();
 
             Console.WriteLine(json2);
+
             ////var order = JsonConvert.DeserializeObject<Order>(json2); // for url2
             //var order = JObject.Parse(json2)["order"].ToObject<Order>();// for url3
 

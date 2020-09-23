@@ -82,5 +82,8 @@ namespace SerializeJsonDemo
 
         [JsonProperty("status")]
         public string Status { get; set; }
+
+        [JsonProperty("tracking_number")]
+        public string TrackingNumber { get; set; }
     }
 }
